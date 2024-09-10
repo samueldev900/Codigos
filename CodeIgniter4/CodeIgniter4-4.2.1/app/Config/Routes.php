@@ -7,8 +7,10 @@ $routes = Services::routes();
 
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
+
 if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
     require SYSTEMPATH . 'Config/Routes.php';
+
 }
 
 /*
@@ -35,7 +37,28 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Home::index', ['as' => 'home']);
+$routes->get('/contact', 'Contact::index', ['as' => 'contact']); 
+$routes->post('/contact', 'Contact::store', ['as' => 'contact_store']); 
+$routes->get('/products', 'Product::index', ['as' => 'product']);
+
+
+
+/* $routes->get('/contact', 'Contact::index');
+$routes->get('/contact/edit/(:any)/(:any)', 'Contact::edit/$1/$2');
+$routes->post('/contact/store', 'Contact::store');
+$routes->get('/teste', 'Teste::index');
+$routes->post('/user', 'User::store', ['as'=> 'user_store']); */
+
+
+
+
+/* $routes->group( 'dashboard', ['namespace' => 'App\Controllers\dashboard'] ,static function($routes){
+    
+    $routes->get('/', 'Dashboard::index');
+    $routes->get('users', 'User::index');
+
+}); */
 
 /*
  * --------------------------------------------------------------------

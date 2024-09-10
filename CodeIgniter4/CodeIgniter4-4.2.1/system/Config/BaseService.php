@@ -259,7 +259,8 @@ class BaseService
     {
         static::buildServicesCache();
         $services = array_merge(self::$serviceNames, [Services::class]);
-        $name     = strtolower($name);
+        $name = strtolower($name);
+
 
         foreach ($services as $service) {
             if (method_exists($service, $name)) {

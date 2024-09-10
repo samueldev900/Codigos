@@ -2,6 +2,10 @@
 
 namespace Config;
 
+use App\Libraries\Interfaces\PaymentInterface;
+use App\Libraries\Payment;
+use App\Libraries\PaymentPagseguro;
+use App\Libraries\PaymentPaypal;
 use CodeIgniter\Events\Events;
 use CodeIgniter\Exceptions\FrameworkException;
 
@@ -46,3 +50,29 @@ Events::on('pre_system', static function () {
         Services::toolbar()->respond();
     }
 });
+
+
+/* Events::on('post_system',function(){
+
+    var_dump('SEGUNDO');
+
+});
+
+Events::on('post_system',function(){
+
+    var_dump('PRIMEIRO');
+
+}, Events::PRIORITY_HIGH);
+
+Events::on('email_send', function($array){
+
+    var_dump($array);
+
+});
+
+Events::on('payment', function(PaymentInterface $paymentInterface){
+
+    $payment = new Payment;
+    $payment->pay($paymentInterface);
+
+}); */
