@@ -1,0 +1,21 @@
+--Iniciando CodeIgniter 4 com o servidor do PHP
+
+	php -S localhost:8000 -t public
+
+--Iniciando com servidor do CodeIgniter
+	php spark serve
+	php spark serve --port 8000
+	php spark serve --host code.dev.br
+	php spark serve --port 8080 --host code.dev.br
+
+
+-- Eventos 
+
+CodeIgniter’s Events feature provides a means to tap into and modify the inner workings of the framework without hacking core files. 
+https://codeigniter.com/user_guide/extending/events.html
+
+pre_system
+post_controller_constructor
+post_system
+
+

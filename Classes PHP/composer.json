@@ -1,0 +1,16 @@
+{
+    "name": "app/app",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Samuel Oliveira",
+            "email": "samueloliveira900@gmail.com"
+        }
+    ],
+    "require": {}
+}

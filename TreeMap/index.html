@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        #retangulo{
+            display: flex;
+            width: 1000px;
+            height: 562.5px;
+            background-color: beige;
+            margin: auto;
+        }
+        main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        div{
+            border: 1px solid black;
+        }
+        .porcento{
+            height: 100%;
+            width: 250px;
+        }
+        .coluna1{
+
+        }
+    </style>
+</head>
+<body>
+    
+<main>
+    <div>
+        <h1>Total de casos: <span id="total-cases"></span></h1>
+        <ul id="uf-list"></ul>
+    </div>
+    <div id="retangulo">
+        <div class="porcento coluna1">
+            <div class="">SP</div>
+            <div class="">MG</div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+        </div>
+        <div class="porcento">
+
+        </div>
+        <div class="porcento">
+
+        </div>
+        <div class="porcento">
+
+        </div>
+    </div>
+</main>
+
+<script>
+const xhttp = new XMLHttpRequest();
+
+xhttp.onload = function() {
+    if (xhttp.status >= 200 && xhttp.status < 300) {
+        var receiveRequest = JSON.parse(xhttp.responseText);
+        console.log(receiveRequest);
+
+        var totalCases = receiveRequest.data.reduce(function(sum, state) {
+            return sum + state.cases;
+        }, 0);
+
+        document.getElementById("total-cases").textContent = totalCases.toLocaleString('pt-BR');
+
+        var ufList = document.getElementById("uf-list");
+
+        receiveRequest.data.forEach(function(state) {
+            var percentage = (state.cases / totalCases * 100).toFixed(2);
+            var listItem = document.createElement("li");
+            listItem.textContent = `${state.uf}: ${percentage}%`;
+            ufList.appendChild(listItem);
+        });
+    } else {
+        console.error("Error: " + xhttp.statusText);
+    }
+};
+
+xhttp.open("GET", "https://covid19-brazil-api.now.sh/api/report/v1", true);
+xhttp.send();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+======================================= Entendendo o MVC =======================================
+
+https://devclass.com.br/controller/metodo/parametro
+
+curso = controller
+index - quando carregado o controller e não passa o método = https://devclass.com.br/curso
+show - quando quero pegar um registro em especifico = https://devclass.com.br/curso/show
+edit - mostra formulário para atualizar registro = https://devclass.com.br/curso/edit/12
+update - atualiza o registro do banco
+create - mostrar o formulário para cadastrar um registro = https://devclass.com.br/curso/create
+store - Cadastrar registro no banco
+destroy - deletar registro no banco ou logout do sistema = https://devclass.com.br/curso/destroy/21
+
+1- Primeiro passo criar a pasta public e dentro o index.php
+
+|-- app/
+|   |-- Controllers/
+|   |   |-- HomeController.php
+|   |   |-- UserController.php
+|   |
+|   |-- Models/
+|   |   |-- UserModel.php
+|   |   |-- ProductModel.php
+|   |
+|   |-- Views/
+|   |   |-- header.php
+|   |   |-- footer.php
+|   |   |-- home.php
+|   |   |-- user/
+|   |       |-- profile.php
+|   |       |-- login.php
+|   |
+|   |-- Core/
+|       |-- Controller.php
+|       |-- Model.php
+|
+|-- public/
+|   |--assets/
+|   |   |-- css/
+|   |   |-- style.css
+|   |  |-- js/
+|   |   |-- script.js
+|   |   |--
+|   |-- index.php
