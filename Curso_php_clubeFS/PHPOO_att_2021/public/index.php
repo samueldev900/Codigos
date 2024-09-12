@@ -1,21 +1,57 @@
 <?php 
 declare(strict_types=1);
 
+use FTP\Connection;
+
 require "./vendor/autoload.php";
 
 
 
+class Connection2
+{
+    private static $connect = null;
+    public static function connect()
+    {
+        try{
+            if(!self::$connect){
+                self::$connect = new PDO("mysql:host=localhost;dbname=cadastro", "root", "86375297",[
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
+                ]);
+            }
+            return self::$connect;
+        }catch(PDOException $e){
+            var_dump($e->getMessage());
+        }
+
+    }
+}
+
 class Model
 {
+    protected $connection;
 
+    public function __construct()
+    {
+        $this->connection = Connection2::connect();
+    }
+
+    public function all()
+    {
+        $sql = "SELECT * FROM {$this->table}";
+        $query = $this->connection->query($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
 }
 
 class User extends Model
 {
-    
+    protected $table = 'users';
 }
 
+$user = new User();
 
+var_dump($user->all());
 
 /* class Product
 {
