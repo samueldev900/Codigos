@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .verde{
+        color: green;
+    }
+</style>
+<body> 
+    <div id="app">
+        <a v-bind:href="site">Site</a> <!-- diretiva v-bind -->
+        <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
+        <input type="text" name="" id="" v-bind:placeholder="instrucaoDePreenchimento">
+        <input type="checkbox" name="" id="" v-bind:checked="check">
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app', 
+            data: {
+                site: 'https://jorgesantana.net.br',
+                cor: 'verde',
+                instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
+                valor: 'Entendendo a diretiva v-bind',
+                check: false
+            },
+            methods: {}
+        });
+
+    </script>
+</html>

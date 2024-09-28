@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .verde{
+        background-color: green;
+    }
+
+    .azul{
+        background-color: blue;
+    }
+    .white{
+        background-color: white;
+    }
+    .red{
+        background-color: red;
+    }
+    .borda{
+        border: 1px solid;
+    }
+
+    .div-principal{
+        width: 200px;
+        height: 200px;
+    }
+    .div-comum{
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+    }
+    
+</style>
+<body> 
+    <div id="app">
+
+      <div class="div-principal borda" v-bind:class="cor">
+        Cor : {{ cor }} <br>
+
+        Porsição X do Mouse: {{ posicaoX }} <br>
+        Posição Y do Mouse: {{ posicaoY }}
+      </div>
+      <hr>
+      <div v-on:click="mudarCor('verde')" class="borda div-comum"></div>
+      <div v-on:click="mudarCor('azul')" class="borda div-comum" @mouseover="mudarCor('azul')" @mouseout="mudarCor('red')"></div>
+
+      <div class="borda div-comum" @mousemove="coordenadas($event)"></div>
+
+    </div>
+
+    <script>
+
+        const vm = new Vue({
+            el: '#app', 
+            data: {
+              cor: '',
+              posicaoX: 0,
+              posicaoY: 0
+            },
+            methods: {
+                mudarCor(c){
+                    this.cor = c
+                },
+                coordenadas(e){
+                    this.posicaoX = e.clientX
+                    this.posicaoY = e.clientY
+                }
+            }
+        });
+
+    </script>
+</html>

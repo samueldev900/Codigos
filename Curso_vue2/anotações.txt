@@ -1,0 +1,26 @@
+v-bind:class / :class == A diretiva v-bind  pode ser usada como (v-bind) ou na forma enxulta (:)
+Tem por objetivo capturar valores de data
+
+v-on ou apenas @: tem por objetivo capturar eventos como click de acordo com os metodos em methods
+
+v-on[]
+
+click
+keyup
+mousemove
+submit
+scroll
+
+
+@click
+@click.prevent
+@click.once
+@click.prevent.once
+@keyup.a
+@keyup.shift.enter
+
+
+
+    
+
+;
