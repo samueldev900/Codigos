@@ -1,0 +1,5 @@
+- Classes coesas devem seguir o principio SOLID, devem ter 1 unica função (MAX 2)
+
+- Classes abstratas são classes incompletas e nao podem ser instanciadas
+
+- final class é uma classe completa e colocamos o final antes do class para impedir a herança

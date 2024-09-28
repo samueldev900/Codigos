@@ -1,9 +1,12 @@
+======================= v-bind ou : ======================================
+
 v-bind:class / :class == A diretiva v-bind  pode ser usada como (v-bind) ou na forma enxulta (:)
 Tem por objetivo capturar valores de data
 
-v-on ou apenas @: tem por objetivo capturar eventos como click de acordo com os metodos em methods
 
-v-on[]
+==================  v-on ou @ ==========================
+
+v-on ou apenas @: tem por objetivo capturar eventos como click de acordo com os metodos em methods
 
 click
 keyup
@@ -13,14 +16,13 @@ scroll
 
 
 @click
-@click.prevent
-@click.once
-@click.prevent.once
+@click.prevent = previne uma ação padrão
+@click.once = executa apenas uma vez
+@click.prevent.once =  previne uma ação padrão apenas uma vez
 @keyup.a
 @keyup.shift.enter
 
 
-
+============================================================
     
 
-;

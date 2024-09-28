@@ -48,7 +48,11 @@
       <div v-on:click="mudarCor('verde')" class="borda div-comum"></div>
       <div v-on:click="mudarCor('azul')" class="borda div-comum" @mouseover="mudarCor('azul')" @mouseout="mudarCor('red')"></div>
 
-      <div class="borda div-comum" @mousemove="coordenadas($event)"></div>
+      <div class="borda div-comum" @mousemove="coordenadas($event)" @click="digaMeuNome()"></div>
+
+      <div>
+        {{nome}}
+      </div>
 
     </div>
 
@@ -59,7 +63,8 @@
             data: {
               cor: '',
               posicaoX: 0,
-              posicaoY: 0
+              posicaoY: 0,
+              nome: ''
             },
             methods: {
                 mudarCor(c){
@@ -68,7 +73,11 @@
                 coordenadas(e){
                     this.posicaoX = e.clientX
                     this.posicaoY = e.clientY
+                },
+                digaMeuNome(e){
+                    this.nome = 'Olá Chrystian'
                 }
+
             }
         });
 
