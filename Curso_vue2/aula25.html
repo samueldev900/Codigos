@@ -33,6 +33,15 @@
                 </tr>
             </tbody>
         </table>
+        <hr>
+        <ul>
+            <li v-for="p in publicacoes" style="border: 1px solid; margin-bottom: 10px;">
+                {{ p.publicacao }}
+                <hr>
+                <input type="text">
+            </li>
+        </ul>
+        <button @click="misturarArray()">Misturar Publicações</button>
       
     </div>
 
@@ -51,10 +60,23 @@
                         titulo: 'Banco de dados',
                         descricao: 'Aprenda os principais BDs relacionais do mercado'
                     }
-                }
+                },
+                publicacoes: [
+                    {id:1 , publicacao: 'Publicações 1'},
+                    {id:2 , publicacao: 'Publicações 2'},
+                    {id:3 , publicacao: 'Publicações 3'},
+                ]
             },
             methods: {
-               
+                misturarArray(){
+                    let misturado = [];
+
+                    misturado[0] = this.publicacoes[2];
+                    misturado[1] = this.publicacoes[0];
+                    misturado[2] = this.publicacoes[1];
+
+                    this.publicacoes = misturado
+                }
             }
         });
 
