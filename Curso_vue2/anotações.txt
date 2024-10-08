@@ -14,7 +14,6 @@ mousemove
 submit
 scroll
 
-
 @click
 @click.prevent = previne uma ação padrão
 @click.once = executa apenas uma vez
@@ -23,6 +22,47 @@ scroll
 @keyup.shift.enter
 
 
-============================================================
-    
+============================v-show================================
+AULA 21
 
+Exibição condiçional de elementos HTML ele utiliza o (display)
+
+ao contrario do v-if que ignora completamente o a div, o v-show utiliza 
+o atributo display para mostrar ou seja, o elemto ainda estará lá
+(pense em coisas que devem serem ocultadas por segurança)
+
+E o v-show é mais rapido que o v-if
+
+
+============================v-HTML================================
+AULA 22
+
+
+VOCE PODE COLOCAR ELEMENTOS HTML DENTRO DE UMA VARIAVEL data e 
+renderizar elas por meio da diretiva v-html
+
+
+porem se a div que voce inserir um v-html ja tiver um valor, ele será substituido
+
+============================v-text================================
+AULA 23
+
+
+Ele renderiza textos que estao em variavel data, caso a div que esta sendo aplicada a diretiva v-text 
+possuir um texto prévio ele será limpado e apenas o texto da variavel será renderizado
+
+
+============================v-once================================
+AULA 24
+
+    Faz com que os elementos html sejam renderizados apenas uma unica vez, ou seja eles
+    nao sofrem alterações
+
+
+
+============================v-for================================
+AULA 24
+
+Laços de repetições vue (for())
+
+==================================================================
