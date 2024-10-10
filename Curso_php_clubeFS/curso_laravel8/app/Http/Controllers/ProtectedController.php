@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ProtectedController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        dd('lista usuarios na api');
+        dd('protected index');
     }
 
     /**
@@ -24,7 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        dd('create');
+        //
+        dd('protected create');
     }
 
     /**
